@@ -29,6 +29,7 @@
                 id="email"
                 v-model="formData.email"
                 @input="validateField('email')"
+                placeholder="example@ex.com"
               />
               <span class="form-text">{{ errors.email }}</span>
             </div>
@@ -41,6 +42,7 @@
                 aria-describedby="nameHelp"
                 v-model="formData.name"
                 @input="validateField('name')"
+                placeholder="Антон"
               />
               <span class="form-text">{{ errors.name }}</span>
             </div>
@@ -53,6 +55,7 @@
                 aria-describedby="surnameHelp"
                 v-model="formData.surname"
                 @input="validateField('surname')"
+                placeholder="Чайка"
               />
               <span class="form-text">{{ errors.surname }}</span>
             </div>
@@ -65,6 +68,7 @@
                 aria-describedby="middleNameHelp"
                 v-model="formData.middleName"
                 @input="validateField('middleName')"
+                placeholder="Павлович"
               />
               <span class="form-text">{{ errors.middleName }}</span>
             </div>
@@ -79,6 +83,7 @@
                 v-mask="'+38(0##)-###-##-##'"
                 v-model="formData.cellphone"
                 @input="validateField('cellphone')"
+
               />
               <span class="form-text">{{ errors.cellphone }}</span>
             </div>
@@ -103,6 +108,7 @@
                 aria-describedby="passwordHelp"
                 v-model="formData.password"
                 @input="validateField('password')"
+                placeholder="**********"
               />
               <span class="form-text">{{ errors.password }}</span>
             </div>
@@ -115,6 +121,7 @@
                 aria-describedby="passwordConfirmHelp"
                 v-model="formData.passwordConfirm"
                 @input="validateField('passwordConfirm')"
+                placeholder="**********"
               />
               <span class="form-text">{{ errors.passwordConfirm }}</span>
             </div>
