@@ -1,7 +1,6 @@
 <template>
   <div>
-    <table>
-      <!-- Table headers -->
+    <table class="table">
       <thead>
         <tr>
           <th>Checkbox</th>
@@ -13,7 +12,6 @@
           <th>Role</th>
         </tr>
       </thead>
-      <!-- Table body -->
       <tbody>
         <tr v-for="user in users" :key="user.id">
           <td><input type="checkbox" v-model="user.selected" /></td>
@@ -21,15 +19,18 @@
           <td>{{ user.surname }}</td>
           <td>{{ user.middleName }}</td>
           <td>{{ calculateAge(user.birthDate) }}</td>
-          <td>{{ user.gender }}</td>
-          <td>{{ user.role }}</td>
+          <td>{{ replaceVariants(user.gender, "gender") }}</td>
+          <td>{{ replaceVariants(user.role, "role") }}</td>
         </tr>
       </tbody>
     </table>
-    <div>
-      <!-- Table code remains the same -->
-      <button @click="deleteUser">Видалити користувача</button>
-      <button @click="duplicateUser">Продублювати користувача</button>
+    <div class="text-center">
+      <button class="btn btn-light m-1" @click="deleteUser">
+        Видалити користувача
+      </button>
+      <button class="btn btn-light" @click="duplicateUser">
+        Продублювати користувача
+      </button>
     </div>
   </div>
 </template>
@@ -58,7 +59,7 @@ export default {
       const selectedUserIds = this.users
         .filter((user) => user.selected)
         .map((user) => user.id);
-      this.$emit("deleteUser", selectedUserIds); // Corrected: "deleteUser" instead of "deleteUser"
+      this.$emit("deleteUser", selectedUserIds);
     },
     duplicateUser() {
       console.log("duplicate");
@@ -67,10 +68,28 @@ export default {
         .map((user) => user.id);
       this.$emit("duplicateUser", selectedUserIds);
     },
+    replaceVariants(value, type) {
+      const genderVariants = {
+        male: "Male",
+        female: "Female",
+      };
+
+      const roleVariants = {
+        1: "Адміністратор",
+        2: "Користувач",
+        3: "Автор",
+      };
+
+      if (type === "gender") {
+        return genderVariants[value] || value;
+      } else if (type === "role") {
+        return roleVariants[value] || value;
+      } else {
+        return value;
+      }
+    },
   },
 };
 </script>
 
-<style scoped>
-/* Add your styling here */
-</style>
+<style scoped></style>

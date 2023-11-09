@@ -27,6 +27,7 @@ export default {
   methods: {
     addUser(user) {
       user.selected = false;
+      console.log(user);
       this.users.push(user);
     },
     deleteUser(selectedUserIds) {

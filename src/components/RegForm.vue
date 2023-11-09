@@ -305,11 +305,12 @@ export default {
       }
     },
     validateForm() {
-      const isValid = Object.keys(this.errors).every(
-        (fieldName) => this.errors[fieldName] === ""
+      const isEmptyField = Object.keys(this.formData).some(
+        (fieldName) => !this.formData[fieldName]
       );
-      this.isFormValid = isValid;
-      return isValid;
+      this.isFormValid = !isEmptyField;
+
+      return !isEmptyField;
     },
     submitForm() {
       if (this.validateForm()) {
