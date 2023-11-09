@@ -83,7 +83,6 @@
                 v-mask="'+38(0##)-###-##-##'"
                 v-model="formData.cellphone"
                 @input="validateField('cellphone')"
-
               />
               <span class="form-text">{{ errors.cellphone }}</span>
             </div>
