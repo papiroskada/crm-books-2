@@ -3,13 +3,13 @@
     <table class="table">
       <thead>
         <tr>
-          <th>Checkbox</th>
-          <th>Name</th>
-          <th>Surname</th>
-          <th>Middlename</th>
-          <th>Age</th>
-          <th>Gender</th>
-          <th>Role</th>
+          <th>Вибір</th>
+          <th>Ім'я</th>
+          <th>Призвіще</th>
+          <th>По батькові</th>
+          <th>Вік</th>
+          <th>Стать</th>
+          <th>Роль</th>
         </tr>
       </thead>
       <tbody>
@@ -55,14 +55,12 @@ export default {
       return age;
     },
     deleteUser() {
-      console.log("deelete");
       const selectedUserIds = this.users
         .filter((user) => user.selected)
         .map((user) => user.id);
       this.$emit("deleteUser", selectedUserIds);
     },
     duplicateUser() {
-      console.log("duplicate");
       const selectedUserIds = this.users
         .filter((user) => user.selected)
         .map((user) => user.id);
@@ -70,8 +68,8 @@ export default {
     },
     replaceVariants(value, type) {
       const genderVariants = {
-        male: "Male",
-        female: "Female",
+        male: "Чоловіча",
+        female: "Жіноча",
       };
 
       const roleVariants = {

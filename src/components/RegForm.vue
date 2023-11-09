@@ -126,6 +126,7 @@
                   class="form-check-input"
                   type="radio"
                   name="gender"
+                  value="male"
                   id="male"
                   v-model="formData.gender"
                   @input="validateField('gender')"
@@ -137,6 +138,7 @@
                   class="form-check-input"
                   type="radio"
                   name="gender"
+                  value="female"
                   id="female"
                   v-model="formData.gender"
                   @input="validateField('gender')"
@@ -283,13 +285,6 @@ export default {
         this.errors[fieldName] = "";
       }
     },
-    validateGender(fieldName) {
-      if (!this.formData[fieldName]) {
-        this.errors[fieldName] = "Оберіть стать";
-      } else {
-        this.errors[fieldName] = "";
-      }
-    },
     validateRole(fieldName) {
       if (this.formData[fieldName] === 0) {
         this.errors[fieldName] = "Оберіть роль";
@@ -316,7 +311,6 @@ export default {
       if (this.validateForm()) {
         this.$emit("submitForm", { ...this.formData, id: Date.now() });
         this.resetForm();
-        console.log("Form submitted successfully!");
       }
     },
     resetForm() {
