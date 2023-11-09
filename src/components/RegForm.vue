@@ -5,164 +5,165 @@
         <div
           class="col-sm-5 mx-auto form shadow-sm p-3 mb-5 bg-body-tertiary rounded"
         >
-          <img
-            :src="avatarSrc"
-            class="avatar mx-auto d-block mb-3 rounded-circle"
-            alt="аватар"
-          />
-          <div class="input-group mb-3">
-            <input
-              type="file"
-              class="form-control"
-              id="avatar"
-              accept="image/*"
-              @change="handleAvatarChange"
+          <form @submit.prevent="submitForm">
+            <img
+              :src="avatarSrc"
+              class="avatar mx-auto d-block mb-3 rounded-circle"
+              alt="аватар"
             />
-            <label class="input-group-text" for="avatar">Завантажити</label>
-          </div>
-          <div class="mb-3">
-            <label for="email" class="form-label">Email</label>
-            <input
-              type="email"
-              class="form-control"
-              id="email"
-              v-model="formData.email"
-              @input="validateField('email')"
-            />
-            <span class="form-text">{{ errors.email }}</span>
-          </div>
-          <div class="mb-3">
-            <label for="name" class="form-label">Ім'я</label>
-            <input
-              type="text"
-              class="form-control"
-              id="name"
-              aria-describedby="nameHelp"
-              v-model="formData.name"
-              @input="validateField('name')"
-            />
-            <span class="form-text">{{ errors.name }}</span>
-          </div>
-          <div class="mb-3">
-            <label for="surname" class="form-label">Призвіще</label>
-            <input
-              type="text"
-              class="form-control"
-              id="surname"
-              aria-describedby="surnameHelp"
-              v-model="formData.surname"
-              @input="validateField('surname')"
-            />
-            <span class="form-text">{{ errors.surname }}</span>
-          </div>
-          <div class="mb-3">
-            <label for="middleName" class="form-label">По батькові</label>
-            <input
-              type="text"
-              class="form-control"
-              id="middleName"
-              aria-describedby="middleNameHelp"
-              v-model="formData.middleName"
-              @input="validateField('middleName')"
-            />
-            <span class="form-text">{{ errors.middleName }}</span>
-          </div>
-          <div class="mb-3">
-            <label for="cellphone" class="form-label">Номер телефону</label>
-            <input
-              type="tel"
-              class="form-control"
-              id="cellphone"
-              name="cellphone"
-              placeholder="+38(000)-000-00-00"
-              v-mask="'+38(0##)-###-##-##'"
-              v-model="formData.cellphone"
-              @input="validateField('cellphone')"
-            />
-            <span class="form-text">{{ errors.cellphone }}</span>
-          </div>
-          <div class="mb-3">
-            <label for="birthDate" class="form-label">Дата народження</label>
-            <input
-              type="date"
-              class="form-control"
-              id="birthDate"
-              aria-describedby="birthDateHelp"
-              v-model="formData.birthDate"
-              @input="validateField('birthDate')"
-            />
-            <span class="form-text">{{ errors.birthDate }}</span>
-          </div>
-          <div class="mb-3">
-            <label for="password" class="form-label">Пароль</label>
-            <input
-              type="password"
-              class="form-control"
-              id="password"
-              aria-describedby="passwordHelp"
-              v-model="formData.password"
-              @input="validateField('password')"
-            />
-            <span class="form-text">{{ errors.password }}</span>
-          </div>
-          <div class="mb-3">
-            <label for="passwordConfirm" class="form-label">Пароль</label>
-            <input
-              type="password"
-              class="form-control"
-              id="passwordConfirm"
-              aria-describedby="passwordConfirmHelp"
-              v-model="formData.passwordConfirm"
-              @input="validateField('passwordConfirm')"
-            />
-            <span class="form-text">{{ errors.passwordConfirm }}</span>
-          </div>
+            <div class="input-group mb-3">
+              <input
+                type="file"
+                class="form-control"
+                id="avatar"
+                accept="image/*"
+                @change="handleAvatarChange"
+              />
+              <label class="input-group-text" for="avatar">Завантажити</label>
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                v-model="formData.email"
+                @input="validateField('email')"
+              />
+              <span class="form-text">{{ errors.email }}</span>
+            </div>
+            <div class="mb-3">
+              <label for="name" class="form-label">Ім'я</label>
+              <input
+                type="text"
+                class="form-control"
+                id="name"
+                aria-describedby="nameHelp"
+                v-model="formData.name"
+                @input="validateField('name')"
+              />
+              <span class="form-text">{{ errors.name }}</span>
+            </div>
+            <div class="mb-3">
+              <label for="surname" class="form-label">Призвіще</label>
+              <input
+                type="text"
+                class="form-control"
+                id="surname"
+                aria-describedby="surnameHelp"
+                v-model="formData.surname"
+                @input="validateField('surname')"
+              />
+              <span class="form-text">{{ errors.surname }}</span>
+            </div>
+            <div class="mb-3">
+              <label for="middleName" class="form-label">По батькові</label>
+              <input
+                type="text"
+                class="form-control"
+                id="middleName"
+                aria-describedby="middleNameHelp"
+                v-model="formData.middleName"
+                @input="validateField('middleName')"
+              />
+              <span class="form-text">{{ errors.middleName }}</span>
+            </div>
+            <div class="mb-3">
+              <label for="cellphone" class="form-label">Номер телефону</label>
+              <input
+                type="tel"
+                class="form-control"
+                id="cellphone"
+                name="cellphone"
+                placeholder="+38(000)-000-00-00"
+                v-mask="'+38(0##)-###-##-##'"
+                v-model="formData.cellphone"
+                @input="validateField('cellphone')"
+              />
+              <span class="form-text">{{ errors.cellphone }}</span>
+            </div>
+            <div class="mb-3">
+              <label for="birthDate" class="form-label">Дата народження</label>
+              <input
+                type="date"
+                class="form-control"
+                id="birthDate"
+                aria-describedby="birthDateHelp"
+                v-model="formData.birthDate"
+                @input="validateField('birthDate')"
+              />
+              <span class="form-text">{{ errors.birthDate }}</span>
+            </div>
+            <div class="mb-3">
+              <label for="password" class="form-label">Пароль</label>
+              <input
+                type="password"
+                class="form-control"
+                id="password"
+                aria-describedby="passwordHelp"
+                v-model="formData.password"
+                @input="validateField('password')"
+              />
+              <span class="form-text">{{ errors.password }}</span>
+            </div>
+            <div class="mb-3">
+              <label for="passwordConfirm" class="form-label">Пароль</label>
+              <input
+                type="password"
+                class="form-control"
+                id="passwordConfirm"
+                aria-describedby="passwordConfirmHelp"
+                v-model="formData.passwordConfirm"
+                @input="validateField('passwordConfirm')"
+              />
+              <span class="form-text">{{ errors.passwordConfirm }}</span>
+            </div>
 
-          <div class="mb-3">
-            <p class="fs-6">Обери стать</p>
-            <div class="form-check">
-              <input
-                class="form-check-input"
-                type="radio"
-                name="gender"
-                id="male"
-                v-model="formData.gender"
-                @input="validateField('gender')"
-              />
-              <label class="form-check-label" for="male"> Чоловіча </label>
+            <div class="mb-3">
+              <p class="fs-6">Обери стать</p>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="gender"
+                  id="male"
+                  v-model="formData.gender"
+                  @input="validateField('gender')"
+                />
+                <label class="form-check-label" for="male"> Чоловіча </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="gender"
+                  id="female"
+                  v-model="formData.gender"
+                  @input="validateField('gender')"
+                />
+                <label class="form-check-label" for="female"> Жіноча </label>
+              </div>
+              <span class="form-text">{{ errors.gender }}</span>
             </div>
-            <div class="form-check">
-              <input
-                class="form-check-input"
-                type="radio"
-                name="gender"
-                id="female"
-                v-model="formData.gender"
-                @input="validateField('gender')"
-              />
-              <label class="form-check-label" for="female"> Жіноча </label>
+            <div class="mb-3">
+              <select class="form-select" v-model="formData.role">
+                <option value="0">Обери роль</option>
+                <option value="1">Власник</option>
+                <option value="2">Адмін</option>
+                <option value="3">Користувач</option>
+              </select>
+              <span class="form-text">{{ errors.role }}</span>
             </div>
-            <span class="form-text">{{ errors.gender }}</span>
-          </div>
-          <div class="mb-3">
-            <select class="form-select" v-model="formData.role">
-              <option value="0">Обери роль</option>
-              <option value="1">Власник</option>
-              <option value="2">Адмін</option>
-              <option value="3">Користувач</option>
-            </select>
-            <span class="form-text">{{ errors.role }}</span>
-          </div>
-          <div class="d-grid gap-2 col-6 mx-auto">
-            <button
-              type="submit"
-              class="btn btn-outline-success"
-              @click="submitForm"
-              :disabled="!isFormValid"
-            >
-              Зареєструватись
-            </button>
-          </div>
+            <div class="d-grid gap-2 col-6 mx-auto">
+              <button
+                type="submit"
+                class="btn btn-outline-success"
+                :disabled="!isFormValid"
+              >
+                Зареєструватись
+              </button>
+            </div>
+          </form>
         </div>
       </div>
     </div>
@@ -230,8 +231,6 @@ export default {
       if (validationRules[fieldName]) {
         validationRules[fieldName](fieldName);
       }
-
-      // Check overall form validity and update isFormValid
       this.isFormValid = this.validateForm();
     },
     validateName(fieldName) {
@@ -242,7 +241,7 @@ export default {
           fieldName
         ] = `Поле повинно бути написане українською та починатися з великої літери.`;
       } else {
-        this.errors[fieldName] = ""; // Clear the error when the input is valid
+        this.errors[fieldName] = "";
       }
     },
     validateBirthDate(fieldName) {
@@ -254,7 +253,7 @@ export default {
       if (age < 18) {
         this.errors[fieldName] = "Вам має бути більше 18 років";
       } else {
-        this.errors[fieldName] = ""; // Clear the error when the input is valid
+        this.errors[fieldName] = "";
       }
     },
     validateEmail(fieldName) {
@@ -262,11 +261,10 @@ export default {
       if (!emailRegex.test(this.formData[fieldName])) {
         this.errors[fieldName] = "Введіть коректний email";
       } else {
-        this.errors[fieldName] = ""; // Clear the error when the input is valid
+        this.errors[fieldName] = "";
       }
     },
     validateCellphone(fieldName) {
-      // Remove non-digit characters from the phone number
       const phoneNumber = this.formData[fieldName].replace(/\D/g, "");
 
       const phoneRegex = /^380\d{9}$/;
@@ -282,33 +280,31 @@ export default {
         this.errors[fieldName] =
           "Пароль має складатись з 8 символів, в яких присутні спец. символи, цифри, англ. літери великого та малого регістрів.";
       } else {
-        this.errors[fieldName] = ""; // Clear the error when the input is valid
+        this.errors[fieldName] = "";
       }
     },
     validateGender(fieldName) {
       if (!this.formData[fieldName]) {
         this.errors[fieldName] = "Оберіть стать";
       } else {
-        this.errors[fieldName] = ""; // Clear the error when the input is valid
+        this.errors[fieldName] = "";
       }
     },
     validateRole(fieldName) {
       if (this.formData[fieldName] === 0) {
         this.errors[fieldName] = "Оберіть роль";
       } else {
-        this.errors[fieldName] = ""; // Clear the error when the input is valid
+        this.errors[fieldName] = "";
       }
     },
     validatePasswordConfirm(fieldName) {
       if (this.formData.password !== this.formData.passwordConfirm) {
         this.errors[fieldName] = "Паролі не співпадають";
       } else {
-        this.errors[fieldName] = ""; // Clear the error when the input is valid
+        this.errors[fieldName] = "";
       }
     },
-    // Add similar validation methods for other fields if needed
     validateForm() {
-      // Check overall form validity and update isFormValid
       const isValid = Object.keys(this.errors).every(
         (fieldName) => this.errors[fieldName] === ""
       );
@@ -317,27 +313,27 @@ export default {
     },
     submitForm() {
       if (this.validateForm()) {
-        this.formData = {
-          email: "",
-          name: "",
-          surname: "",
-          middleName: "",
-          cellphone: "",
-          birthDate: null,
-          password: "",
-          passwordConfirm: "",
-          gender: null,
-          role: 0,
-        };
-
-        // Clear errors
-        this.errors = {};
-
-        // Reset avatarSrc to the default image
-        this.avatarSrc = require("../assets/avatar.svg");
-
+        this.$emit("submitForm", { ...this.formData, id: Date.now() });
+        this.resetForm();
         console.log("Form submitted successfully!");
       }
+    },
+    resetForm() {
+      this.isFormValid = false;
+      this.formData = {
+        email: "",
+        name: "",
+        surname: "",
+        middleName: "",
+        cellphone: "",
+        birthDate: null,
+        password: "",
+        passwordConfirm: "",
+        gender: null,
+        role: 0,
+      };
+      this.errors = {};
+      this.avatarSrc = require("../assets/avatar.svg");
     },
   },
 };
